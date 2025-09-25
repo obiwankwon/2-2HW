@@ -33,7 +33,6 @@ public class Student {
     String getPhoneNum(){
         String Phonenumstr;
         String FinalPhoneNum;
-        // 전화번호가 10자리인 경우를 가정하여 0을 붙여줌 (예: 1012345678 -> 01012345678)
         Phonenumstr = "0" + Integer.toString(PhoneNum); 
         FinalPhoneNum = Phonenumstr.substring(0,3) + "-" +
                         Phonenumstr.substring(3,7) + "-" +
@@ -50,7 +49,6 @@ class StudentTest {
         for (int i = 0; i < students.length; i++) {
             System.out.printf("%d번째 학생의 학번, 이름, 전공, 전화번호를 입력하세요: ", i + 1);
             
-            // nextLine()으로 한 줄 전체를 읽어옴
             String studentInformation = scanner.nextLine(); 
             String[] infoArray = studentInformation.split(" ");
 
@@ -58,8 +56,7 @@ class StudentTest {
             students[i].setStudentNum(Integer.parseInt(infoArray[0]));
             students[i].setName(infoArray[1]);
             students[i].setMajor(infoArray[2]);
-            // 전화번호에서 '-'를 제거하고 숫자로 변환
-            students[i].setPhoneNum(Integer.parseInt(infoArray[3].replace("-", "")));
+            students[i].setPhoneNum(Integer.parseInt(infoArray[3]));
         }
 
         System.out.println("\n입력된 학생들의 정보는 다음과 같습니다.");
